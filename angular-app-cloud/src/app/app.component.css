@@ -1,0 +1,13 @@
+    .titre_app {
+        text-align: center;
+        background-color: grey;
+        font-weight: bold;
+    }
+    
+    .back_color_blue {
+        background-color: rgb(50, 50, 121);
+    }
+    
+    .container {
+        color: white;
+    }

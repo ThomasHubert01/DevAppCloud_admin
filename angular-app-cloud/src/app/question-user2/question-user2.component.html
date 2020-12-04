@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-4">
+          Quel Genre ?
+        </div>
+        <div class="col">
+          <label>
+    <input [(ngModel)]="genre_placeholder.name" placeholder="Genre..."/>
+  </label>
+        </div>
+        <div class="col">
+          <button (click)="Read_genre()">validated</button>
+        </div>
+
+  </div>
+
+  <div class="row">
+  Resultat
+  </div>
+  <div class="case_research">
+ <li *ngFor="let movie_test of movies">
+
+  {{movie_test.title}} - {{movie_test.year}}  <br/>
+  </li>
+  </div>
+
+</div>

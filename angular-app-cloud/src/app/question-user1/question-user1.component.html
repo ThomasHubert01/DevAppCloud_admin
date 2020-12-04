@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-4">
+          Quel Film ?
+        </div>
+        <div class="col">
+          <label>
+    <input [(ngModel)]="movie_placeholder.title" placeholder="title"/>
+  </label>
+        </div>
+        <div class="col">
+          <button (click)="Read_movie()">validated</button>
+        </div>
+
+  </div>
+
+  <div class="row">
+  Resultat
+  </div>
+  <div class="case_research">
+  <li *ngFor="let director_test of directors">
+
+  {{director_test.firstname}} - {{director_test.lastname}} <br/>
+  </li>
+  </div>
+
+</div>
