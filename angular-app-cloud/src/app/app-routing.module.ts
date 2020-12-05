@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QuestionUser1Component } from './question-user1/question-user1.component';
-import { QuestionUser2Component } from './question-user2/question-user2.component';
-import { QuestionUser3Component } from './question-user3/question-user3.component';
-import { QuestionUser4Component } from './question-user4/question-user4.component';
+import { AdminComponent } from "./admin/admin.component";
+import { HomeComponent } from "./home/home.component";
+import { UserComponent } from "./user/user.component";
 
 const routes: Routes = [
-  { path: 'question-user1-component', component: QuestionUser1Component },
-  { path: 'question-user2-component', component: QuestionUser2Component },
-  { path: 'question-user3-component', component: QuestionUser3Component },
-  { path: 'question-user4-component', component: QuestionUser4Component }
+  { path: '', component: HomeComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'user', component: UserComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+    { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

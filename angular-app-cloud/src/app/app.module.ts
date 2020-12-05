@@ -1,28 +1,30 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QuestionSelectorComponent } from './question-selector/question-selector.component';
-import { QuestionUser1Component } from './question-user1/question-user1.component';
-import { QuestionUser2Component } from './question-user2/question-user2.component';
-import { QuestionUser3Component } from './question-user3/question-user3.component';
-import { QuestionUser4Component } from './question-user4/question-user4.component';
+import { HomeComponent } from './home/home.component';
+import { MaterialModule } from "./shared-module/material.module";
+import { AdminComponent } from './admin/admin.component';
+import { UserComponent } from './user/user.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    QuestionSelectorComponent,
-    QuestionUser1Component,
-    QuestionUser2Component,
-    QuestionUser3Component,
-    QuestionUser4Component
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
+  ],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AdminComponent,
+    UserComponent,
+    ToolbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
