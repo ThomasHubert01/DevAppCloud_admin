@@ -1,28 +1,28 @@
 <div class="container">
-  <div class="row">
+    <div class="row">
 
-    <div class="col-4">
-          Quelle année ?
+        <div class="col-4">
+            Quelle année ?
         </div>
         <div class="col">
-          <label>
-    <input [(ngModel)]="genre_placeholder" placeholder="genre"/>
-  </label>
+            <label>
+                <input [(ngModel)]="genrePlaceholder" placeholder="genre"/>
+            </label>
         </div>
         <div class="col">
-          <button (click)="Read_genre()">validated</button>
+            <button (click)="readGenre()">validated</button>
         </div>
 
-  </div>
+    </div>
 
-  <div class="row">
-  Resultat
-  </div>
-  <div class="case_research">
-<li *ngFor="let actor_test of actors">
+    <div class="row">
+        Resultat
+    </div>
+    <div class="case_research">
+        <li *ngFor="let actor_test of actors">
 
-  {{actor_test.firstname}} - {{actor_test.lastname}}  <br/>
-  </li>
-  </div>
+            {{actor_test.firstName}} - {{actor_test.lastName}}  <br/>
+        </li>
+    </div>
 
 </div>

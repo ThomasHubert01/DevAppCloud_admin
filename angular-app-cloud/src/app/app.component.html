@@ -1,15 +1,7 @@
-<div class="container back_color_blue">
-   <div class="row">
-      <div class="col titre_app">
-         Application Movie Guess
-      </div>
+<div class="app-container">
+    <app-toolbar class="toolbar"></app-toolbar>
 
-   </div>
-   <div class="row">
-      <div class="col">
-         Interface User
-<app-question-selector></app-question-selector>
-      </div>
-
-   </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
 </div>

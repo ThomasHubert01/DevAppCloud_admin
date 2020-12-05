@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="row">
+    <div class="row">
 
 
         <div class="col">
-          <button (click)="Read_movie()">validated</button>
+            <button (click)="readMovie()">validated</button>
         </div>
 
-  </div>
+    </div>
 
-  <div class="row">
-  Resultat
-  </div>
-  <div class="case_research">
-  <li *ngFor="let director_test of directors">
+    <div class="row">
+        Resultat
+    </div>
+    <div class="case_research">
+        <li *ngFor="let director_test of directors">
 
-  {{director_test.firstname}} - {{director_test.lastname}} <br/>
-  </li>
-  </div>
+            {{director_test.firstName}} - {{director_test.lastName}} <br/>
+        </li>
+    </div>
 
 </div>

@@ -1,13 +1,31 @@
-    .titre_app {
-        text-align: center;
-        background-color: grey;
-        font-weight: bold;
-    }
-    
-    .back_color_blue {
-        background-color: rgb(50, 50, 121);
-    }
-    
-    .container {
-        color: white;
-    }
+
+.app-container {
+  min-height: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.toolbar {
+  position: static;
+  z-index: 3;
+}
+
+
+.main-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+}
+

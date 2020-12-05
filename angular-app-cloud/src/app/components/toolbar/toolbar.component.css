@@ -1,0 +1,14 @@
+.toolbar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.title {
+  margin: 0 10px;
+}
+
+.toolbar-button {
+  margin: 0 5px;
+}
+

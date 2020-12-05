@@ -1,7 +1,7 @@
-import { Genre } from './../genre';
-import { Movie } from './../movie';
-import { MOVIES } from './../mock_movies';
 import { Component, OnInit } from '@angular/core';
+import { MOVIES } from '../../test/mock_movies';
+import { Genre } from '../domain/genre';
+import { Movie } from '../domain/movie';
 
 @Component({
   selector: 'app-question-user2',
@@ -9,18 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-user2.component.css']
 })
 export class QuestionUser2Component implements OnInit {
-  movies : Movie[];
+  movies: Movie[];
 
-  genre_placeholder : Genre ={
+  genrePlaceholder: Genre = {
     name: 'Genre...'
-  }
+  };
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  Read_genre() {
+  readMovie(): void {
     this.movies = MOVIES;
-    window.alert(this.genre_placeholder.name);
+    window.alert(this.genrePlaceholder.name);
   }
 }

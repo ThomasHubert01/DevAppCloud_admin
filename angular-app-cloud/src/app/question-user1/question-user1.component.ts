@@ -1,8 +1,7 @@
-import { Movie } from './../movie';
-import { DIRECTORS } from './../mock_directors';
-import { Director } from './../director';
 import { Component, OnInit } from '@angular/core';
-
+import { DIRECTORS } from '../../test/mock_directors';
+import { Director } from '../domain/director';
+import { Movie } from '../domain/movie';
 
 
 @Component({
@@ -11,21 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-user1.component.css']
 })
 export class QuestionUser1Component implements OnInit {
-  directors : Director[];
-  movie_placeholder : Movie = {
-    id : 0,
-    title : "Movie",
-    year : 2000
-  }
+  directors: Director[];
+  moviePlaceholder: Movie = {
+    id: 0,
+    title: 'Movie',
+    year: 2000
+  };
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  Read_movie() {
+  readMovie(): void {
     this.directors = DIRECTORS;
-    window.alert(this.movie_placeholder.title);
+    window.alert(this.moviePlaceholder.title);
   }
 
 }
