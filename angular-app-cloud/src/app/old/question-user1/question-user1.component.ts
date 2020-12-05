@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DIRECTORS } from '../../test/mock_directors';
-import { Director } from '../domain/director';
-import { Movie } from '../domain/movie';
+import { DIRECTORS } from '../../../test/mock_directors';
+import { Director } from '../../domain/director';
+import { Movie } from '../../domain/movie';
 
 
 @Component({
