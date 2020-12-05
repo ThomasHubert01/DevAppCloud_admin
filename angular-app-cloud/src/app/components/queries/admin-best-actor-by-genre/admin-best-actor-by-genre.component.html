@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="query">
+        <mat-form-field appearance="outline" class="genre-input">
+            <mat-label>Genre</mat-label>
+            <mat-select [formControl]="genreInput" required>
+                <mat-option *ngFor="let genre of genres" [value]="genre.name">{{genre.name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="genreInput.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button
+                color="accent"
+                (click)="loadActor()">
+            Search
+        </button>
+    </div>
+    <div class="results">
+        <span>Results here</span>
+    </div>
+</div>

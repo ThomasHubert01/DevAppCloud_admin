@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GENRE_PROP } from '../../test/mock_genre_proportion';
+import { GENRE_PROP } from '../../test/mock_genre';
 import { Actor } from '../domain/actor';
 import { GenreProportion } from '../domain/genre_proportion';
 

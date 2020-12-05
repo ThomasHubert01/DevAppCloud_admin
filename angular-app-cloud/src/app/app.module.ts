@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
+import { QueriesModule } from "./components/queries/queries.module";
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { UserComponent } from './components/user/user.component';
 import { MaterialModule } from "./shared-module/material.module";
@@ -17,7 +18,8 @@ import { MaterialModule } from "./shared-module/material.module";
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    QueriesModule
   ],
   declarations: [
     AppComponent,

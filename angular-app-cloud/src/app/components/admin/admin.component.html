@@ -1,1 +1,44 @@
-<p>admin works!</p>
+<div class="admin-content">
+    <span class="admin-title">Admin queries</span>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Comment évolue la proportion d’un genre de film au fil des ans ?
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-admin-genre-over-years></app-admin-genre-over-years>
+            </ng-template>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Pour chaque année et chaque genre, quel est le directeur qui a le plus de succès ?
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-admin-directors-success></app-admin-directors-success>
+            </ng-template>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Pour un genre donné, quel est le meilleur acteur ?
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-admin-best-actor-by-genre></app-admin-best-actor-by-genre>
+            </ng-template>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Quelle est la proportion pour chaque genre de film joué par un acteur en particulier ?
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-admin-genre-by-actor></app-admin-genre-by-actor>
+            </ng-template>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
