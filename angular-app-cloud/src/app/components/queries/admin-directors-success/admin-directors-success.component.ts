@@ -1,8 +1,19 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
-import { DirectorsSuccessResult } from "../../../../test/mock-director-success";
+import { BehaviorSubject, Observable } from "rxjs";
+import { finalize } from "rxjs/operators";
 import { MongoService } from "../../../services/mongo.service";
+
+export interface DirectorsSuccessResult {
+  _id: {
+    year: number,
+    genre: string
+  },
+  success: number,
+  first_name: string,
+  last_name: string
+}
 
 @Component({
   selector: 'app-admin-directors-success',
@@ -11,14 +22,25 @@ import { MongoService } from "../../../services/mongo.service";
 })
 export class AdminDirectorsSuccessComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['year', 'genre', 'director', 'rank'];
-  dataSource: MatTableDataSource<DirectorsSuccessResult> | null = null
+  dataSource = new MatTableDataSource<DirectorsSuccessResult>([])
 
+  private loadingSubject = new BehaviorSubject<boolean>(false);
   @ViewChild(MatPaginator) private _paginator!: MatPaginator;
 
   constructor(private mongoService: MongoService) {}
 
+  get loading$(): Observable<boolean> {
+    return this.loadingSubject.asObservable();
+  }
+
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.mongoService.getDirectorSuccess());
+    this.loadingSubject.next(true);
+    this.mongoService.getDirectorSuccess()
+      .pipe(finalize(() => this.loadingSubject.next(false)))
+      .subscribe(next => {
+          this.dataSource.data = next
+        }
+      )
   }
 
   ngAfterViewInit() {

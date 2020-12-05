@@ -1,20 +1,53 @@
-import { Injectable, OnDestroy, OnInit } from '@angular/core';
-import { DIRECTOR_SUCCESS, DirectorsSuccessResult } from "../../test/mock-director-success";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { DirectorsSuccessResult } from "../../test/mock-director-success";
+import { Actor } from "../domain/actor";
+import { Genre } from "../domain/genre";
 
 @Injectable({
   providedIn: 'root'
 })
-export class MongoService implements OnInit, OnDestroy {
+export class MongoService {
+  createRequestOption = (req?: any): HttpParams => {
+    let options: HttpParams = new HttpParams();
+    if (req) {
+      Object.keys(req).forEach(key => {
+        options = options.set(key, req[key]);
 
-  constructor() {}
+      });
+    }
+    return options;
+  };
 
-  ngOnInit(): void {
+  private resourceUrl = "http://localhost:9292";
+
+  constructor(private http: HttpClient) {}
+
+  getDirectorSuccess(req?: any): Observable<DirectorsSuccessResult[]> {
+    const options = this.createRequestOption(req);
+    return this.http
+      .get<DirectorsSuccessResult[]>(`${this.resourceUrl}/movies/director/evolution`, {
+        params: options,
+        observe: 'response'
+      })
+      .pipe(map((res: any) => res.body));
   }
 
-  ngOnDestroy(): void {
+  getAllGenres(): Observable<Genre[]> {
+    return this.http
+      .get<Genre[]>(`${this.resourceUrl}/genre/all`, { observe: 'response' })
+      .pipe(map((res: any) => res.body))
   }
 
-  getDirectorSuccess(): DirectorsSuccessResult[] {
-    return DIRECTOR_SUCCESS
+  getBestActor(genre: string): Observable<Actor> {
+    const options = this.createRequestOption({ genre });
+    return this.http
+      .get<Actor>(`${this.resourceUrl}/movies/genre/bestactor`, {
+        params: options,
+        observe: 'response'
+      })
+      .pipe(map((res: any) => res.body))
   }
 }

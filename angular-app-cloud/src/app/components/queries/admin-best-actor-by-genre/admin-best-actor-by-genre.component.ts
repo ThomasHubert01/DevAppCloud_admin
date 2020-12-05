@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
-import { GENRES } from "../../../../test/mock_genre";
 import { Actor } from "../../../domain/actor";
 import { Genre } from "../../../domain/genre";
 import { MongoService } from "../../../services/mongo.service";
@@ -18,19 +17,16 @@ export class AdminBestActorByGenreComponent implements OnInit {
   constructor(private mongoService: MongoService) { }
 
   ngOnInit(): void {
-    this.genres = this.loadGenres()
+    this.mongoService.getAllGenres().subscribe(next => {
+      this.genres = next
+    })
   }
 
   loadActor(): void {
     this.genreInput.markAsTouched()
     if (this.genreInput.valid) {
-      console.log("search actor")
-      // this.mongoService.bestActorByGenre()
+      this.mongoService.getBestActor(this.genreInput.value).subscribe(next => this.actors = next)
     }
-  }
-
-  loadGenres(): Genre[] {
-    return GENRES
   }
 
   getErrorMessage(): string {

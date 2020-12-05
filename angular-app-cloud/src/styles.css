@@ -10,11 +10,30 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
 /**
 * Remove blue outline from chrome ...
 **/
 *:focus {
   outline: none !important;
   border: 0 !important;
+}
+
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+/* Increase contrast of links to get 100% on Lighthouse Accessibility Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
+a,
+a:hover {
+  color: #000000;
+  font-weight: bold;
+}
+
+a:hover {
+  /* make sure browsers use the pointer cursor for anchors, even with no href */
+  cursor: pointer;
 }

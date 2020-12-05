@@ -1,4 +1,3 @@
 export interface Genre {
-  name: string;
-  prop: number;
+  _id: string;
 }
