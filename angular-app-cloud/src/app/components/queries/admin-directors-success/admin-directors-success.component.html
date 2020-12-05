@@ -1,5 +1,34 @@
 <div class="container">
-    <div class="results">
-        <span>Results here</span>
+    <div class="results mat-elevation-z8 table">
+        <table mat-table [dataSource]="dataSource">
+            <!-- Year Column -->
+            <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef> Year</th>
+                <td mat-cell *matCellDef="let element"> {{element._id.year}} </td>
+            </ng-container>
+
+            <!-- Genre Column -->
+            <ng-container matColumnDef="genre">
+                <th mat-header-cell *matHeaderCellDef> Genre</th>
+                <td mat-cell *matCellDef="let element"> {{element._id.genre}} </td>
+            </ng-container>
+
+            <!-- Director Column -->
+            <ng-container matColumnDef="director">
+                <th mat-header-cell *matHeaderCellDef> Director</th>
+                <td mat-cell *matCellDef="let element"> {{element.first_name + ' ' + element.last_name}} </td>
+            </ng-container>
+
+            <!-- Rank Column -->
+            <ng-container matColumnDef="rank">
+                <th mat-header-cell *matHeaderCellDef> Average rank</th>
+                <td mat-cell *matCellDef="let element"> {{element.avg_rank}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
     </div>
 </div>

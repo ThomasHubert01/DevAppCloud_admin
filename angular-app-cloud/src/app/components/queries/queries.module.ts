@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatTableModule } from "@angular/material/table";
+import { MatTreeModule } from "@angular/material/tree";
 import { MaterialModule } from "../../shared-module/material.module";
 import { AdminBestActorByGenreComponent } from "./admin-best-actor-by-genre/admin-best-actor-by-genre.component";
 import { AdminDirectorsSuccessComponent } from "./admin-directors-success/admin-directors-success.component";
@@ -16,7 +20,11 @@ import { UserTopFilmsComponent } from "./user-top-films/user-top-films.component
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTreeModule,
+    MatProgressBarModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   declarations: [
     UserDirectorByFilmComponent,
