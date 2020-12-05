@@ -38,8 +38,8 @@ async function run() {
 
 // requete 1
 app.get('/movies/director', function (req, res) {
-    let bodyRequest = req.body;
-    let film = bodyRequest['film'];
+    let bodyRequest = req.query;
+    let film = bodyRequest.film;
     MongoClient.connect(uri, function (err, db) {
         if (err) throw err;
         var dbo = db.db("imdb");
@@ -51,13 +51,13 @@ app.get('/movies/director', function (req, res) {
                 db.close();
             });
     });
-})
+});
 
 // requete 2
 
 app.get('/movies/genre', function (req, res) {
-    let bodyRequest = req.body;
-    let genre = bodyRequest['genre'];
+    let bodyRequest = req.query;
+    let genre = bodyRequest.genre;
     MongoClient.connect(uri, function (err, db) {
         if (err) throw err;
         var dbo = db.db("imdb");
@@ -73,12 +73,12 @@ app.get('/movies/genre', function (req, res) {
                 db.close();
             });
     });
-})
+});
 
 // requete 3
 app.get('/actors/top10/year', function (req, res) {
-    let bodyRequest = req.body;
-    let year = bodyRequest['year'];
+    let bodyRequest = req.query;
+    let year = bodyRequest.year;
     MongoClient.connect(uri, function (err, db) {
         if (err) throw err;
         var dbo = db.db("imdb");
@@ -94,7 +94,7 @@ app.get('/actors/top10/year', function (req, res) {
                 resultIds = [];
                 result.forEach(res => {
                     resultIds.push(res["_id"]);
-                })
+                });
                 dbo.collection("actors").find({ "_id": { $in: resultIds } }, { projection: { "_id": 0, "last_name": 1, "first_name": 1 } }).toArray(function (err, result) {
                     if (err) throw err;
                     res.send(result);
@@ -102,13 +102,13 @@ app.get('/actors/top10/year', function (req, res) {
                 })
             });
     });
-})
+});
 
 // requete 4
 app.get('/movies/bestmovie/actor', function (req, res) {
-    let bodyRequest = req.body;
-    let firstName = bodyRequest['firstName'];
-    let lastName = bodyRequest['lastName'];
+    let bodyRequest = req.query;
+    let firstName = bodyRequest.firstName;
+    let lastName = bodyRequest.lastName;
     MongoClient.connect(uri, function (err, db) {
         if (err) throw err;
         var dbo = db.db("imdb");
@@ -126,12 +126,12 @@ app.get('/movies/bestmovie/actor', function (req, res) {
                 })
         });
     });
-})
+});
 
 // requete 5
 app.get('/movies/evolution/year', function (req, res) {
-    let bodyRequest = req.body;
-    let genre = bodyRequest['genre'];
+    let bodyRequest = req.query;
+    let genre = bodyRequest.genre;
     MongoClient.connect(uri, function (err, db) {
         if (err) throw err;
         var dbo = db.db("imdb");
@@ -149,7 +149,7 @@ app.get('/movies/evolution/year', function (req, res) {
                 db.close();
             });
     });
-})
+});
 
 // requete 6
 app.get('/movies/director/evolution', function (req, res) {
@@ -183,12 +183,12 @@ app.get('/movies/director/evolution', function (req, res) {
                 db.close();
             });
     });
-})
+});
 
 // requete 7
 app.get('/movies/genre/bestactor', function (req, res) {
-    let requestBody = req.body;
-    let genre = requestBody["genre"];
+    let requestBody = req.query;
+    let genre = requestBody.genre;
     MongoClient.connect(uri, function (err, db) {
         if (err) throw err;
         var dbo = db.db("imdb");
@@ -212,14 +212,14 @@ app.get('/movies/genre/bestactor', function (req, res) {
                     })
             });
     });
-})
+});
 
 
 // requete 8
 app.get('/actors/genre', function (req, res) {
-    let requestBody = req.body;
-    let lastName = requestBody["lastName"];
-    let firstName = requestBody["firstName"];
+    let requestBody = req.query;
+    let lastName = requestBody.lastName;
+    let firstName = requestBody.firstName;
     MongoClient.connect(uri, function (err, db) {
         if (err) throw err;
         var dbo = db.db("imdb");
@@ -247,13 +247,13 @@ app.get('/actors/genre', function (req, res) {
                                 "genre": obj["_id"],
                                 "percentage": obj["count"] / obj["totalCount"] * 100
                             })
-                        })
+                        });
                         res.send(resultSend);
                         db.close()
                     })
             });
     });
-})
+});
 
 
 // requete pour avoir tous les genres
@@ -271,7 +271,7 @@ app.get('/genre/all', function (req, res) {
                 db.close()
             })
     });
-})
+});
 
 // lancer le test de connexion
 run();
