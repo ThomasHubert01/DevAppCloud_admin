@@ -1,8 +1,8 @@
-import { Movie } from './../movie';
+import { GENRE_PROP } from './../mock_genre_proportion';
+import { Genre_proportion } from './../genre_proportion';
 import { Actor } from './../actor';
-import { MOVIES } from './../mock_movies';
-import { Component, OnInit } from '@angular/core';
 
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-question-user4',
   templateUrl: './question-user4.component.html',
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionUser4Component implements OnInit {
 
-  movies : Movie[];
+  all_genres : Genre_proportion[];
   targeted_actor : Actor = {
     firstname:'Firstname',
     lastname:'Lastname'
@@ -21,7 +21,7 @@ export class QuestionUser4Component implements OnInit {
   }
 
   Read_actor(){
-    this.movies = MOVIES;
+    this.all_genres = GENRE_PROP;
     window.alert(this.targeted_actor.firstname + ' ' + this.targeted_actor.lastname);
   }
 }

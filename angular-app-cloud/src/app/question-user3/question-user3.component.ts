@@ -10,15 +10,15 @@ import { ACTORS} from './../mock_actors';
 })
 export class QuestionUser3Component implements OnInit {
   actors : Actor[];
-  year : number = 2000;
+  genre_placeholder : string = 'Genre...';
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  Read_year(){
+  Read_genre(){
     this.actors = ACTORS;
-    window.alert(this.year);
+    window.alert(this.genre_placeholder);
   }
 
 }
