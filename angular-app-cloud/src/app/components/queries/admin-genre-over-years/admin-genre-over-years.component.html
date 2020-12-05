@@ -1,1 +1,17 @@
-<p>admin-genre-by-years works!</p>
+<div class="container">
+    <div class="query">
+        <mat-form-field appearance="outline" class="genre-input">
+            <mat-label>Film name</mat-label>
+            <input matInput [formControl]="filmName" required>
+            <mat-error *ngIf="filmName.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button
+                color="accent"
+                (click)="loadGenres()">
+            Search
+        </button>
+    </div>
+    <div class="results">
+        <span>Results here</span>
+    </div>
+</div>
