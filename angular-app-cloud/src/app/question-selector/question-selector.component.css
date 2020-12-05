@@ -1,14 +1,14 @@
 .interface_selection {
-    height: 100px;
-    border: black solid 1px;
+  height: 100px;
+  border: black solid 1px;
 }
 
 .interface_question {
-    height: 300px;
-    border: black solid 1px;
-    background-color: rgb(71, 71, 192);
+  height: 300px;
+  border: black solid 1px;
+  background-color: rgb(71, 71, 192);
 }
 
 .col {
-    text-align: center;
+  text-align: center;
 }

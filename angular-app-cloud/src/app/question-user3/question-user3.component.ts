@@ -1,6 +1,6 @@
-import { Actor } from './../actor';
 import { Component, OnInit } from '@angular/core';
-import { ACTORS} from './../mock_actors';
+import { ACTORS } from '../../test/mock_actors';
+import { Actor } from '../domain/actor';
 
 
 @Component({
@@ -9,16 +9,17 @@ import { ACTORS} from './../mock_actors';
   styleUrls: ['./question-user3.component.css']
 })
 export class QuestionUser3Component implements OnInit {
-  actors : Actor[];
-  genre_placeholder : string = 'Genre...';
+  actors: Actor[];
+  genrePlaceholder = 'Genre...';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  Read_genre(){
+  readGenre(): void {
     this.actors = ACTORS;
-    window.alert(this.genre_placeholder);
+    window.alert(this.genrePlaceholder);
   }
 
 }

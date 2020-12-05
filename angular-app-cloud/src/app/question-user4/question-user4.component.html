@@ -1,33 +1,33 @@
 <div class="container">
-  <div class="row">
+    <div class="row">
 
-    <div class="col-4">
-          Quel acteur ?
+        <div class="col-4">
+            Quel acteur ?
         </div>
         <div class="col">
-          <label>
-    <input [(ngModel)]="targeted_actor.firstname" placeholder="title"/>
-  </label>
+            <label>
+                <input [(ngModel)]="targetedActor.firstName" placeholder="title"/>
+            </label>
         </div>
         <div class="col">
-          <label>
-    <input [(ngModel)]="targeted_actor.lastname" placeholder="title"/>
-  </label>
+            <label>
+                <input [(ngModel)]="targetedActor.lastName" placeholder="title"/>
+            </label>
         </div>
         <div class="col">
-          <button (click)="Read_actor()">validated</button>
+            <button (click)="readActor()">validated</button>
         </div>
 
-  </div>
+    </div>
 
-  <div class="row">
-  Resultat
-  </div>
-  <div class="case_research">
- <li *ngFor="let genres of all_genres">
+    <div class="row">
+        Resultat
+    </div>
+    <div class="case_research">
+        <li *ngFor="let genres of allGenres">
 
-  {{genres.name}} - {{genres.prop}}  <br/>
-  </li>
-  </div>
+            {{genres.name}} - {{genres.prop}}  <br/>
+        </li>
+    </div>
 
 </div>

@@ -1,8 +1,8 @@
-import { GENRE_PROP } from './../mock_genre_proportion';
-import { Genre_proportion } from './../genre_proportion';
-import { Actor } from './../actor';
-
 import { Component, OnInit } from '@angular/core';
+import { GENRE_PROP } from '../../test/mock_genre_proportion';
+import { Actor } from '../domain/actor';
+import { GenreProportion } from '../domain/genre_proportion';
+
 @Component({
   selector: 'app-question-user4',
   templateUrl: './question-user4.component.html',
@@ -10,18 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionUser4Component implements OnInit {
 
-  all_genres : Genre_proportion[];
-  targeted_actor : Actor = {
-    firstname:'Firstname',
-    lastname:'Lastname'
-  }
+  allGenres: GenreProportion[];
+  targetedActor: Actor = {
+    firstName: 'Firstname',
+    lastName: 'Lastname'
+  };
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  Read_actor(){
-    this.all_genres = GENRE_PROP;
-    window.alert(this.targeted_actor.firstname + ' ' + this.targeted_actor.lastname);
+  readActor(): void {
+    this.allGenres = GENRE_PROP;
+    window.alert(this.targetedActor.firstName + ' ' + this.targetedActor.lastName);
   }
 }

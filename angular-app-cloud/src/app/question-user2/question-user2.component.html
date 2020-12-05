@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="row">
+    <div class="row">
 
 
         <div class="col">
-          <button (click)="Read_genre()">validated</button>
+            <button (click)="readMovie()">validated</button>
         </div>
 
-  </div>
+    </div>
 
-  <div class="row">
-  Resultat
-  </div>
-  <div class="case_research">
- <li *ngFor="let movie_test of movies">
+    <div class="row">
+        Resultat
+    </div>
+    <div class="case_research">
+        <li *ngFor="let movie_test of movies">
 
-  {{movie_test.title}} - {{movie_test.year}}  <br/>
-  </li>
-  </div>
+            {{movie_test.title}} - {{movie_test.year}}  <br/>
+        </li>
+    </div>
 
 </div>
