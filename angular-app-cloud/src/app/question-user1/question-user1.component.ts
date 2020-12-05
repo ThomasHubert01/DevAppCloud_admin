@@ -10,7 +10,7 @@ import { Movie } from '../domain/movie';
   styleUrls: ['./question-user1.component.css']
 })
 export class QuestionUser1Component implements OnInit {
-  directors: Director[];
+  directors: Director[] = [];
   moviePlaceholder: Movie = {
     id: 0,
     title: 'Movie',

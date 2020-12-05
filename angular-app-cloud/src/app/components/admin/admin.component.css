@@ -1,0 +1,11 @@
+.admin-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-title {
+  font-size: 30px;
+  align-self: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}

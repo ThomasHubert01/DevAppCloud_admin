@@ -1,1 +1,44 @@
-<p>user works!</p>
+<div class="user-content">
+    <span class="user-title">User queries</span>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Quel est le metteur en scène d’un film en particulier ?
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-user-director-by-film></app-user-director-by-film>
+            </ng-template>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Le top 10 des films d’un genre en particulier, avec leur metteur en scène associés
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-user-top-films></app-user-top-films>
+            </ng-template>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Le top 10 des acteurs (ceux qui ont joué le plus de fois) pour une année en particulier
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-user-top-actors></app-user-top-actors>
+            </ng-template>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Quel est le film le mieux placé dans lequel tel acteur a joué ?
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <app-user-best-film-by-actor></app-user-best-film-by-actor>
+            </ng-template>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

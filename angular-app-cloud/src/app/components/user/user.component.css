@@ -1,0 +1,11 @@
+.user-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-title {
+  font-size: 30px;
+  align-self: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
