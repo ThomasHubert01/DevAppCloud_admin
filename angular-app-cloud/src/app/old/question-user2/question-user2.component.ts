@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MOVIES } from '../../test/mock_movies';
-import { Genre } from '../domain/genre';
-import { Movie } from '../domain/movie';
+import { MOVIES } from '../../../test/mock_movies';
+import { Genre } from '../../domain/genre';
+import { Movie } from '../../domain/movie';
 
 @Component({
   selector: 'app-question-user2',

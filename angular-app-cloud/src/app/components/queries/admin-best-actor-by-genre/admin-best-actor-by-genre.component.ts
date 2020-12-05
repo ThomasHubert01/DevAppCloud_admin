@@ -3,6 +3,7 @@ import { FormControl, Validators } from "@angular/forms";
 import { GENRES } from "../../../../test/mock_genre";
 import { Actor } from "../../../domain/actor";
 import { Genre } from "../../../domain/genre";
+import { MongoService } from "../../../services/mongo.service";
 
 @Component({
   selector: 'app-admin-best-actor-by-genre',
@@ -14,7 +15,7 @@ export class AdminBestActorByGenreComponent implements OnInit {
   genres: Genre[] = []
   actors: Actor | null = null
 
-  constructor() { }
+  constructor(private mongoService: MongoService) { }
 
   ngOnInit(): void {
     this.genres = this.loadGenres()
@@ -24,7 +25,7 @@ export class AdminBestActorByGenreComponent implements OnInit {
     this.genreInput.markAsTouched()
     if (this.genreInput.valid) {
       console.log("search actor")
-      // Charger les actors ici
+      // this.mongoService.bestActorByGenre()
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ACTORS } from '../../test/mock_actors';
-import { Actor } from '../domain/actor';
+import { ACTORS } from '../../../test/mock_actors';
+import { Actor } from '../../domain/actor';
 
 
 @Component({
