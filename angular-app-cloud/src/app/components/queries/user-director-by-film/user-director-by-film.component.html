@@ -1,1 +1,30 @@
-<p>user-best-director works!</p>
+<div class="container">
+  <div class="row">
+
+      <div class="col">
+        <label>
+          Movie Name:
+          <input type="text" [formControl]="movieName">
+        </label>
+      </div>
+
+
+      <div class="col">
+        <button mat-raised-button
+                color="accent"
+                (click)="read_movie()">
+            Search
+        </button>
+      <div>
+
+  </div>
+
+
+
+
+        <li *ngFor="let dir of allDirector">
+            {{dir.firstName}} - {{dir.lastName}}
+        </li>
+
+
+</div>

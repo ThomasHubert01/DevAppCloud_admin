@@ -11,7 +11,7 @@ import { QueriesModule } from "./components/queries/queries.module";
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { UserComponent } from './components/user/user.component';
 import { MaterialModule } from "./shared-module/material.module";
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     BrowserModule,
@@ -19,7 +19,8 @@ import { MaterialModule } from "./shared-module/material.module";
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    QueriesModule
+    QueriesModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,

@@ -1,1 +1,36 @@
-<p>user-best-film works!</p>
+<div class="container">
+  <div class="row">
+
+      <div class="col">
+        <label>
+          First Name:
+          <input type="text" [formControl]="firstNameInput">
+        </label>
+      </div>
+
+      <div class="col">
+        <label>
+          Last Name:
+          <input type="text" [formControl]="lastNameInput">
+        </label>
+      </div>
+
+      <div class="col">
+        <button mat-raised-button
+                color="accent"
+                (click)="read_actor()">
+            Search
+        </button>
+      <div>
+
+  </div>
+
+
+
+
+        <li *ngFor="let movie_test of allmovies">
+            {{movie_test.title}} - {{movie_test.year}}
+        </li>
+
+
+</div>
