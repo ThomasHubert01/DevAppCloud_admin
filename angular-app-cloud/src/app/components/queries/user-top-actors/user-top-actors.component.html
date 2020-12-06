@@ -1,1 +1,30 @@
-<p>user-top-actors works!</p>
+<div class="container">
+  <div class="row">
+
+      <div class="col">
+        <label>
+          Année :
+          <input type="text" [formControl]="anneeTarget">
+        </label>
+      </div>
+
+
+      <div class="col">
+        <button mat-raised-button
+                color="accent"
+                (click)="read_year()">
+            Search
+        </button>
+      <div>
+
+  </div>
+
+
+
+
+        <li *ngFor="let actor of allActor">
+            {{actor.first_name}} - {{actor.last_name}}
+        </li>
+
+
+</div>

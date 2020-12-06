@@ -18,10 +18,6 @@ export class UserBestFilmByActorComponent implements OnInit {
   firstNameInput = new FormControl('');
   lastNameInput = new FormControl('');
 
-  targeted_actor : Actor = {
-    firstName: "Firstname...",
-    lastName: "Lastname..."
-  };
 
 
   constructor() { }

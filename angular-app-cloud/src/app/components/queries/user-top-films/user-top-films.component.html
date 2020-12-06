@@ -1,1 +1,30 @@
-<p>user-top-films works!</p>
+<div class="container">
+  <div class="row">
+
+      <div class="col">
+        <label>
+          Genre :
+          <input type="text" [formControl]="genreTarget">
+        </label>
+      </div>
+
+
+      <div class="col">
+        <button mat-raised-button
+                color="accent"
+                (click)="read_genre()">
+            Search
+        </button>
+      <div>
+
+  </div>
+
+
+
+
+        <li *ngFor="let movie of allMovie">
+            {{movie.title}} - {{movie.year}}
+        </li>
+
+
+</div>
