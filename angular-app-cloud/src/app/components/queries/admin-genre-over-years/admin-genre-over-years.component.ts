@@ -2,23 +2,35 @@ import { DIRECTORS } from './../../../../test/mock_directors';
 import { Director } from './../../../domain/director';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
+
+
+import { MongoService } from "../../../services/mongo.service";
+
+
 @Component({
   selector: 'app-admin-genre-over-years',
   templateUrl: './admin-genre-over-years.component.html',
   styleUrls: ['./admin-genre-over-years.component.css']
 })
 export class AdminGenreOverYearsComponent implements OnInit {
+  filmName = new FormControl(null, [Validators.required]);
 
-  allDirector : Director[] | undefined;
-  movieName = new FormControl('');
-  constructor() { }
+  constructor(private mongoService: MongoService) { }
+
 
   ngOnInit(): void {
   }
 
-  read_movie(): void{
-    this.allDirector = DIRECTORS;
-    window.alert(this.movieName.value);
+
+  loadGenres(): void {
+    this.filmName.markAsTouched()
+    if (this.filmName.valid) {
+      console.log("search genres")
+    }
+  }
+
+  getErrorMessage(): string {
+    return this.filmName.hasError('required') ? 'You must enter a first name' : '';
   }
 
 }

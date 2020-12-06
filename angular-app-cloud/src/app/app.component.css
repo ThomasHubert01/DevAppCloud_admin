@@ -7,7 +7,6 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
 }
 
 .toolbar {

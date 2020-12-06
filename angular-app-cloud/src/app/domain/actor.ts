@@ -1,4 +1,5 @@
 export interface Actor {
-  firstName: string;
-  lastName: string;
+  last_name: string
+  first_name: string
+  moyenne: number
 }

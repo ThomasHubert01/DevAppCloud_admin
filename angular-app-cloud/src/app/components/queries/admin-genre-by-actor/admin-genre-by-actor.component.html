@@ -1,1 +1,22 @@
-<p>admin-genre-by-actor works!</p>
+<div class="container">
+    <div class="query">
+        <mat-form-field appearance="outline" class="genre-input">
+            <mat-label>First Name</mat-label>
+            <input matInput [formControl]="firstNameInput" required>
+            <mat-error *ngIf="firstNameInput.invalid">{{getErrorMessageFirstName()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="genre-input">
+            <mat-label>Last Name</mat-label>
+            <input matInput [formControl]="firstNameInput" required>
+            <mat-error *ngIf="lastNameInput.invalid">{{getErrorMessageLastNameInput()}}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button
+                color="accent"
+                (click)="loadGenres()">
+            Search
+        </button>
+    </div>
+    <div class="results">
+        <span>Results here</span>
+    </div>
+</div>
