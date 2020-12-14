@@ -1,3 +1,4 @@
+<!--
 <div class="container">
   <div class="row">
 
@@ -24,13 +25,27 @@
       <div>
 
   </div>
+-->
 
-
-
-
-        <li *ngFor="let movie_test of allmovies">
-            {{movie_test.title}} - {{movie_test.year}}
-        </li>
-
-
+<div class="container">
+    <div class="query">
+        <mat-form-field appearance="outline" class="genre-input">
+            <mat-label>First Name</mat-label>
+            <input matInput [formControl]="firstNameInput" required>
+            <mat-error *ngIf="firstNameInput.invalid">{{getErrorMessageFirstName()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="genre-input">
+            <mat-label>Last Name</mat-label>
+            <input matInput [formControl]="firstNameInput" required>
+            <mat-error *ngIf="lastNameInput.invalid">{{getErrorMessageLastNameInput()}}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button
+                color="accent"
+                (click)="read_actor()">
+            Search
+        </button>
+    </div>
+    <div class="results">
+        <span>Results here</span>
+    </div>
 </div>

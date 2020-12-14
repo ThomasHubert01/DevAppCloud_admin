@@ -1,3 +1,4 @@
+import { MongoService } from './../../../services/mongo.service';
 
 import { MOVIES } from './../../../../test/mock_movies';
 import { Movie } from './../../../domain/movie';
@@ -13,7 +14,7 @@ export class UserTopFilmsComponent implements OnInit {
   allMovie : Movie[] | undefined;
   genreTarget = new FormControl('');
 
-  constructor() { }
+  constructor(private mongoService: MongoService) { }
 
   ngOnInit(): void {
   }

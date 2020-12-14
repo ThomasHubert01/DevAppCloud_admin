@@ -1,7 +1,9 @@
+import { MongoService } from './../../../services/mongo.service';
 import { ACTORS } from './../../../../test/mock_actors';
 import { Actor } from './../../../domain/actor';
 import { Component, OnInit } from '@angular/core';
 import { FormControl} from "@angular/forms";
+
 @Component({
   selector: 'app-user-top-actors',
   templateUrl: './user-top-actors.component.html',
@@ -13,7 +15,7 @@ export class UserTopActorsComponent implements OnInit {
   anneeTarget = new FormControl('');
   allActor : Actor[] | undefined;
 
-  constructor() { }
+  constructor(private mongoService: MongoService) { }
 
 
 

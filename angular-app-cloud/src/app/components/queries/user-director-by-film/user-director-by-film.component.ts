@@ -1,8 +1,10 @@
+import { MongoService } from './../../../services/mongo.service';
 import { Director } from './../../../domain/director';
 import { DIRECTORS } from './../../../../test/mock_directors';
 import { Movie } from './../../../domain/movie';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
+
 @Component({
   selector: 'app-user-director-by-film',
   templateUrl: './user-director-by-film.component.html',
@@ -12,7 +14,7 @@ export class UserDirectorByFilmComponent implements OnInit {
 
   allDirector : Director[] | undefined;
   movieName = new FormControl('');
-  constructor() { }
+  constructor(private mongoService: MongoService) { }
 
   ngOnInit(): void {
   }
