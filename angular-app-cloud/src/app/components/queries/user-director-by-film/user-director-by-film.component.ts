@@ -13,15 +13,25 @@ import { FormControl, Validators } from "@angular/forms";
 export class UserDirectorByFilmComponent implements OnInit {
 
   allDirector : Director[] | undefined;
-  movieName = new FormControl('');
+  movieName = new FormControl(null, [Validators.required]);
   constructor(private mongoService: MongoService) { }
 
   ngOnInit(): void {
   }
 
   read_movie(): void{
-    this.allDirector = DIRECTORS;
-    window.alert(this.movieName.value);
+    this.movieName.markAllAsTouched();
+    if(this.movieName.valid){
+
+      this.mongoService.getDirectorByFilm(this.movieName.value).subscribe( response => {
+        this.allDirector = response;
+
+      });
+    }
   }
 
+
+  getErrorMessageMovie(): string {
+    return this.movieName.hasError('required') ? 'You must enter a Movie name' : '';
+  }
 }

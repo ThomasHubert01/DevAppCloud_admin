@@ -1,3 +1,4 @@
+<!--
 <div class="container">
   <div class="row">
 
@@ -27,4 +28,27 @@
         </li>
 
 
+</div>
+-->
+
+<div class="container">
+    <div class="query">
+        <mat-form-field appearance="outline" class="genre-input">
+            <mat-label>Genre...</mat-label>
+            <input matInput [formControl]="genreTarget" required>
+            <mat-error *ngIf="genreTarget.invalid">{{getErrorMessageGenre()}}</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="accent"
+                (click)="read_genre()">
+            Search
+        </button>
+    </div>
+    <div class="results">
+        <span>Results here</span>
+        <div *ngFor = "let movie of allMovie">
+          {{movie.name}} ({{movie.year}})
+        </div>
+    </div>
 </div>

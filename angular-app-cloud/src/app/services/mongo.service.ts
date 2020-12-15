@@ -74,7 +74,22 @@ export class MongoService {
 
   }
 
+  getTopFilm(genre: string): Observable<any>{
+    const options = this.createRequestOption({"genre":genre});
+    return this.http.get<any>(`${this.resourceUrl}/movies/genre`, {
+      params: options,
+      observe: 'response'
+    })
+    .pipe(map((res:any) => res.body))
+  }
 
-
+  getDirectorByFilm(film: string): Observable<any>{
+    const options = this.createRequestOption({"film": film});
+    return this.http.get<any>(`${this.resourceUrl}/movies/director`, {
+      params: options,
+      observe: 'response'
+    })
+    .pipe(map((res:any) => res.body))
+  }
 }
 
