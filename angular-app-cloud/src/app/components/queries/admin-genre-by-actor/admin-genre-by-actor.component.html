@@ -1,22 +1,25 @@
 <div class="container">
-    <div class="query">
-        <mat-form-field appearance="outline" class="genre-input">
-            <mat-label>First Name</mat-label>
-            <input matInput [formControl]="firstNameInput" required>
-            <mat-error *ngIf="firstNameInput.invalid">{{getErrorMessageFirstName()}}</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="genre-input">
-            <mat-label>Last Name</mat-label>
-            <input matInput [formControl]="firstNameInput" required>
-            <mat-error *ngIf="lastNameInput.invalid">{{getErrorMessageLastNameInput()}}</mat-error>
-        </mat-form-field>
-        <button mat-raised-button
-                color="accent"
-                (click)="loadGenres()">
-            Search
-        </button>
+  <div class="query">
+    <mat-form-field appearance="outline" class="genre-input">
+      <mat-label>First Name</mat-label>
+      <input matInput [formControl]="firstNameInput" required>
+      <mat-error *ngIf="firstNameInput.invalid">{{getErrorMessageFirstName()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="genre-input">
+      <mat-label>Last Name</mat-label>
+      <input matInput [formControl]="lastNameInput" required>
+      <mat-error *ngIf="lastNameInput.invalid">{{getErrorMessageLastNameInput()}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button
+            color="accent"
+            (click)="loadGenres()">
+      Search
+    </button>
+  </div>
+  <div class="results">
+    <span>Results here</span>
+    <div *ngFor="let evo of proportion">
+      {{evo.genre}} : {{evo.percentage | number:'1.0-0'}} %
     </div>
-    <div class="results">
-        <span>Results here</span>
-    </div>
+  </div>
 </div>

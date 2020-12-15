@@ -74,7 +74,22 @@ export class MongoService {
 
   }
 
+  getGenresOverYears(genre: string): Observable<any>{
+    const options = this.createRequestOption({"genre" : genre});
+    return this.http.get<any>(`${this.resourceUrl}/movies/evolution/year`, {
+      params: options,
+      observe: 'response'
+    })
+  .pipe(map((res:any) => res.body))
+  }
 
-
+  getGenresByActor(firstName: string, lastName: string): Observable<any> {
+    const options = this.createRequestOption({"lastName" : lastName, "firstName" : firstName});
+    return this.http.get<any>(`${this.resourceUrl}/actors/genre`, {
+      params: options,
+      observe: 'response'
+    })
+      .pipe(map((res:any) => res.body))
+  }
 }
 

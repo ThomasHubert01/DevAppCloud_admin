@@ -5,6 +5,7 @@ import { FormControl, Validators } from "@angular/forms";
 
 
 import { MongoService } from "../../../services/mongo.service";
+import {Genre} from "../../../domain/genre";
 
 
 @Component({
@@ -14,23 +15,30 @@ import { MongoService } from "../../../services/mongo.service";
 })
 export class AdminGenreOverYearsComponent implements OnInit {
   filmName = new FormControl(null, [Validators.required]);
+  genres : Genre[] | undefined;
+  response : any[] = [];
 
   constructor(private mongoService: MongoService) { }
 
 
   ngOnInit(): void {
+    this.mongoService.getAllGenres().subscribe(res => {
+      this.genres = res;
+    })
   }
 
 
   loadGenres(): void {
     this.filmName.markAsTouched()
     if (this.filmName.valid) {
-      console.log("search genres")
+      this.mongoService.getGenresOverYears(this.filmName.value).subscribe(res => {
+        this.response=res;
+      })
     }
   }
 
   getErrorMessage(): string {
-    return this.filmName.hasError('required') ? 'You must enter a first name' : '';
+    return this.filmName.hasError('required') ? 'You must enter a genre' : '';
   }
 
 }

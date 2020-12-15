@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from "@angular/forms";
-import { MongoService } from "../../../services/mongo.service";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
+import {MongoService} from "../../../services/mongo.service";
 
 @Component({
   selector: 'app-admin-genre-by-actor',
@@ -10,17 +10,21 @@ import { MongoService } from "../../../services/mongo.service";
 export class AdminGenreByActorComponent implements OnInit {
   firstNameInput = new FormControl(null, [Validators.required]);
   lastNameInput = new FormControl(null, [Validators.required]);
+  proportion: any[] = [];
 
-  constructor(private mongoService: MongoService) { }
+  constructor(private mongoService: MongoService) {
+  }
 
   ngOnInit(): void {
   }
 
   loadGenres(): void {
-    this.firstNameInput.markAsTouched()
-    this.lastNameInput.markAsTouched()
+    this.firstNameInput.markAsTouched();
+    this.lastNameInput.markAsTouched();
     if (this.firstNameInput.valid && this.lastNameInput.valid) {
-      console.log("search genres")
+      this.mongoService.getGenresByActor(this.firstNameInput.value, this.lastNameInput.value).subscribe(res => {
+        this.proportion = res;
+      })
     }
   }
 

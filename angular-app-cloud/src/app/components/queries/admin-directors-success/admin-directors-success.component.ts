@@ -43,7 +43,7 @@ export class AdminDirectorsSuccessComponent implements OnInit, AfterViewInit {
       )
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit() : void {
     this.dataSource!.paginator = this._paginator;
   }
 }
