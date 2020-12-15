@@ -50,4 +50,17 @@ export class MongoService {
       })
       .pipe(map((res: any) => res.body))
   }
+
+
+
+
+  getBestFilmByActor(lastName: string, firstName: string): Observable<any> {
+    const options  =this.createRequestOption( {"lastName": lastName, "firstName": firstName});
+    return this.http.get<any>(`${this.resourceUrl}/movies/bestmovie/actor`, {
+      params: options,
+      observe: 'response'
+    })
+    .pipe(map((res:any) => res.body))
+  }
 }
+

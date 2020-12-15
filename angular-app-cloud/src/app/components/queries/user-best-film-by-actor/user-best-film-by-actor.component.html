@@ -36,7 +36,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline" class="genre-input">
             <mat-label>Last Name</mat-label>
-            <input matInput [formControl]="firstNameInput" required>
+            <input matInput [formControl]="lastNameInput" required>
             <mat-error *ngIf="lastNameInput.invalid">{{getErrorMessageLastNameInput()}}</mat-error>
         </mat-form-field>
         <button mat-raised-button
@@ -47,5 +47,6 @@
     </div>
     <div class="results">
         <span>Results here</span>
+        {{allmovies ? allmovies.name : ''}}
     </div>
 </div>

@@ -15,7 +15,7 @@ import { FormGroup, FormBuilder} from '@angular/forms';
 })
 export class UserBestFilmByActorComponent implements OnInit {
 
-  allmovies : Movie[] | undefined;
+  allmovies : Movie | undefined;
 
   firstNameInput = new FormControl(null, [Validators.required]);
   lastNameInput = new FormControl(null, [Validators.required]);
@@ -28,11 +28,16 @@ export class UserBestFilmByActorComponent implements OnInit {
   }
 
   read_actor(): void {
-    this.firstNameInput.markAsTouched()
-    this.lastNameInput.markAsTouched()
+    this.firstNameInput.markAsTouched();
+    this.lastNameInput.markAsTouched();
+    console.log(this.lastNameInput.valid);
     if (this.firstNameInput.valid && this.lastNameInput.valid) {
-      this.allmovies = MOVIES;
-    window.alert(this.firstNameInput.value + ' ' + this.lastNameInput.value);
+      console.log("API");
+      this.mongoService.getBestFilmByActor(this.firstNameInput.value, this.lastNameInput.value).subscribe( response => {
+        this.allmovies = response;
+        console.log(response);
+      });
+
     }
 
   }
