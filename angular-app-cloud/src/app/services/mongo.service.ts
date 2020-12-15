@@ -62,5 +62,19 @@ export class MongoService {
     })
     .pipe(map((res:any) => res.body))
   }
+
+
+  getTopActors(year: number): Observable<any>{
+    const options = this.createRequestOption( {"year":year});
+    return this.http.get<any>(`${this.resourceUrl}/actors/top10/year`, {
+      params: options,
+      observe: 'response'
+    })
+    .pipe(map((res:any) => res.body))
+
+  }
+
+
+
 }
 

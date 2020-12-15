@@ -2,7 +2,8 @@ import { MongoService } from './../../../services/mongo.service';
 import { ACTORS } from './../../../../test/mock_actors';
 import { Actor } from './../../../domain/actor';
 import { Component, OnInit } from '@angular/core';
-import { FormControl} from "@angular/forms";
+import { FormControl, Validators} from "@angular/forms";
+
 
 @Component({
   selector: 'app-user-top-actors',
@@ -11,22 +12,28 @@ import { FormControl} from "@angular/forms";
 })
 export class UserTopActorsComponent implements OnInit {
 
-
-  anneeTarget = new FormControl('');
   allActor : Actor[] | undefined;
+  anneeTarget = new FormControl(null, [Validators.required]);
+
 
   constructor(private mongoService: MongoService) { }
 
 
 
   ngOnInit(): void {
-    this.allActor = ACTORS;
-    window.alert(this.anneeTarget.value)
   }
 
   read_year(): void{
-    this.allActor = ACTORS;
-    window.alert(this.anneeTarget.value);
+    this.anneeTarget.markAllAsTouched();
+    if(this.anneeTarget.valid){
+      this.mongoService.getTopActors(this.anneeTarget.value).subscribe( response => {
+        this.allActor = response;
+      });
+    }
   }
 
+
+  getErrorMessageYear(): string {
+    return this.anneeTarget.hasError('required') ? 'You must enter a year' : '';
+  }
 }
