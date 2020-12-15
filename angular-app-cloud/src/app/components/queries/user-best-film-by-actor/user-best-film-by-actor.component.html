@@ -47,6 +47,8 @@
     </div>
     <div class="results">
         <span>Results here</span>
-        {{allmovies ? allmovies.name : ''}}
+        <div *ngFor = "let movie of allmovies">
+          {{movie.name}} ({{movie.year}})
+        </div>
     </div>
 </div>
